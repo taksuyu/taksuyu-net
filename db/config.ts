@@ -19,7 +19,7 @@ const Post = defineTable({
     publicId: column.text({ unique: true }),
     authorId: column.number({ references: () => Author.columns.id }),
     likes: column.number({ default: 0 }),
-    metadata: column.json(),
+    metadata: column.json(), // tags
     language: column.text({ default: 'en' }),
     content: column.text(),
   },

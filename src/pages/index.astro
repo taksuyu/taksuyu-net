@@ -1,29 +1,29 @@
 ---
-import ProjectCard from '@/components/ProjectCard.astro';
+import ProjectCard from "@/components/ProjectCard.astro";
 
-import BaseHead from '@/components/BaseHead.astro';
-import Header from '@/components/Header.astro';
-import {SITE_TITLE, SITE_DESCRIPTION} from '@/consts';
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
-import presentation from '@/data/presentation';
-import projects from '@/data/projects';
+import presentation from "@/data/presentation";
+import projects from "@/data/projects";
 
 const convertAsteriskToStrong = (str) =>
   str.replace(
     /\*{1,2}(.*?)\*{1,2}/g,
-    `<strong class="font-normal text-primary-foreground">$1</strong>`
-  )
+    `<strong class="font-normal text-neutral-100">$1</strong>`,
+  );
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-neutral-950 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16">
-
+  <body
+    class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-neutral-950 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16"
+  >
     <Header />
 
     <main class="flex flex-col gap-20 *:flex *:flex-col *:gap-8">
@@ -32,17 +32,17 @@ const convertAsteriskToStrong = (str) =>
           <h1 class="text-3xl text-neutral-100">
             {presentation.title}
           </h1>
-          <h2 
-            class="w-auto max-w-[60ch] leading-6"
-            set:html={convertAsteriskToStrong(presentation.description)}  
-          >
+          <h2
+            class="text-xl font-[ui-sans-serif] w-auto max-w-[60ch] leading-6"
+            set:html={convertAsteriskToStrong(presentation.description)}
+          />
         </div>
       </article>
 
       <article>
         <header class="flex w-full flex-row justify-between gap-2">
           <h3 class="text-lg text-neutral-100">
-            Projects ({projects.length}) 
+            Projects ({projects.length})
           </h3>
         </header>
         {projects.length === 0 && <p>Oops, gotta get to work!</p>}
@@ -50,8 +50,9 @@ const convertAsteriskToStrong = (str) =>
         <section class="flex flex-col gap-4">
           {
             projects.length !== 0 &&
-            projects.map(project => <ProjectCard {...project} />)
+              projects.map((project) => <ProjectCard {...project} />)
           }
+        </section>
       </article>
     </main>
   </body>

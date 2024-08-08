@@ -69,6 +69,9 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
+    fontFamily: {
+      'sans': 'Atkinson, ui-sans-serif',
+    },
   },
   plugins: [require('tailwindcss-animate')],
 };
