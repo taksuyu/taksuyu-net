@@ -1,4 +1,4 @@
-const presentation = {
+export const presentation = {
   mail: 'hi@taksuyu.net',
   title: "Hi, I'm Michael",
   description:
@@ -12,4 +12,5 @@ const presentation = {
   ],
 };
 
+export type Presentation = typeof presentation
 export default presentation;

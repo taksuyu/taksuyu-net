@@ -1,7 +1,7 @@
 ---
 const { title, tech, link, description } = Astro.props;
 
-const formatTech = (tech) => tech.toString().replaceAll(",", ", ");
+const formatTech = (tech: { toString: () => string; }) => tech.toString().replaceAll(",", ", ");
 ---
 
 <>

@@ -1,4 +1,4 @@
-const projects = [
+export const projects = [
   {
     title: 'tabletop',
     tech: ['Haskell', 'Websockets'],
@@ -25,4 +25,5 @@ const projects = [
   },
 ];
 
+export type Projects = typeof projects
 export default projects;

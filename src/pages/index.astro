@@ -6,9 +6,9 @@ import Header from "@/components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
 import presentation from "@/data/presentation";
-import projects from "@/data/projects";
+import { projects, type Projects } from "@/data/projects.ts";
 
-const convertAsteriskToStrong = (str) =>
+const convertAsteriskToStrong = (str: string) =>
   str.replace(
     /\*{1,2}(.*?)\*{1,2}/g,
     `<strong class="font-normal text-neutral-100">$1</strong>`,
@@ -50,7 +50,7 @@ const convertAsteriskToStrong = (str) =>
         <section class="flex flex-col gap-4">
           {
             projects.length !== 0 &&
-              projects.map((project) => <ProjectCard {...project} />)
+              projects.map((project: Projects[number]) => <ProjectCard {...project} />)
           }
         </section>
       </article>

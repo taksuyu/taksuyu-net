@@ -1,15 +1,33 @@
 {
   "extends": "astro/tsconfigs/base",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
+    /* Base Options */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": true,
+    
     "allowImportingTsExtensions": true,
-    "strictNullChecks": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "baseUrl": ".",
+    // "strictNullChecks": true,
+    // "jsx": "react-jsx",
+    // "jsxImportSource": "react",
+    // "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
       ]
     }
-  }
+  },
 }
